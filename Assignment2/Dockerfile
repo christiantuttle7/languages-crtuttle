@@ -1,11 +1,11 @@
-# Use an official Node runtime as base image
-FROM node:20-alpine
+FROM python:3.12-slim
 
-# Create app directory
 WORKDIR /app
 
-# Copy your test script
-COPY js_identifier_test.mjs .
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Run the tests by default when the container starts
-CMD ["node", "js_identifier_test.mjs"]
+COPY . .
+
+# Default to running web server
+CMD ["python", "-m", "app.server"]
