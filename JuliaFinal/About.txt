@@ -1,0 +1,2 @@
+- Comparison.py and comparison.jl is speed test between the two languages
+- final.jl is working with video game data, and main working example
